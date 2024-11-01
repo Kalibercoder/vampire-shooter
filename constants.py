@@ -13,3 +13,5 @@ SHOT_RADIUS = 5
 SHOT_TIMER = 0 
 PLAYER_SHOOT_CD = 0.1
 
+GAME_OVER = "game_over"
+PLAYING = "playing"

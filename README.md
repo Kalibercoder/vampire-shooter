@@ -10,4 +10,4 @@ Deactivate well u guessed it deactivate
 
 
 pip install -r requirements.txt
-pygame==LATEST 
+I used pygame version 2.6.1.
