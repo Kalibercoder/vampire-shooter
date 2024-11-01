@@ -25,6 +25,11 @@ def main():
 
     Player.containers = (updatable, drawable)
 
+    background_image = pygame.image.load("imgs/background.png").convert()
+    background_image = pygame.transform.scale(background_image, (screen.get_width(), screen.get_height()))
+
+
+
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     dt = 0
@@ -47,7 +52,8 @@ def main():
                     shot.kill()
                     asteroid.split()
 
-        screen.fill("black")
+        screen.blit(background_image, (0, 0))
+
 
         for obj in drawable:
             obj.draw(screen)
@@ -55,7 +61,7 @@ def main():
         pygame.display.flip()
 
         # limit the framerate to 60 FPS
-        dt = clock.tick(60) / 1000
+        dt = clock.tick(160) / 1000
 
 
 
