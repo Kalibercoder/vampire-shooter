@@ -21,7 +21,11 @@ def main():
     drawable = pygame.sprite.Group()
     shots = pygame.sprite.Group()
     enemys = pygame.sprite.Group()
-    font = pygame.font.Font(None, 36)
+
+
+    #This is what I call best pratice :)
+    FONT = pygame.font.Font("fonts/font.ttf", 36)
+    font = FONT
 
     # Initialize containers for each class
     Enemy.containers = (enemys, updatable, drawable)
@@ -81,16 +85,19 @@ def main():
             for obj in drawable:
                 obj.draw(screen)
 
+            
+            game_over_lines = [
+            "Game Over!",
+            "Press any key to restart",
+            f'Score: {player.score}'
+            ]
             overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
             overlay.fill((0, 0, 0, 200))  
             screen.blit(overlay, (0, 0))  
-            game_over_text = font.render("Game Over! Press any key to restart", True, (255, 0, 0))
-            text_rect = game_over_text.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))
-            screen.blit(game_over_text, text_rect)
-
-            score_text = font.render(f"Score: {player.score}", True, (255, 0, 0))  
-            score_text_rect = score_text.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 50))  
-            screen.blit(score_text, score_text_rect)
+            for i, line in enumerate(game_over_lines):
+                game_over_text = font.render(line, True, (255, 0, 0))
+                text_rect = game_over_text.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + i * 40))  # Adjust the spacing
+                screen.blit(game_over_text, text_rect)
 
         pygame.display.flip() 
 
