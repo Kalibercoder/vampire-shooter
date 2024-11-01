@@ -4,9 +4,9 @@ from shape import CircleShape
 
 
 class Shot(CircleShape):
-    def __init__(self, x, y):
+    def __init__(self, x, y, rotation):
         super().__init__(x, y, SHOT_RADIUS)
-        self.rotation = 0
+        self.rotation = rotation
         self.image = pygame.image.load("imgs/bullet2.png").convert_alpha()
         self.image = pygame.transform.scale(self.image, (50, 50))
         

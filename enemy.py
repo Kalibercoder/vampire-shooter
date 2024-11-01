@@ -4,39 +4,38 @@ from constants import *
 from shape import CircleShape
 
 
-class Asteroid(CircleShape):
+class Enemy(CircleShape):
     def __init__(self, x, y, radius):
         super().__init__(x, y, radius)
-        self.image = pygame.image.load("imgs/alien.png").convert_alpha()  # Load the asteroid image
-        self.image = pygame.transform.scale(self.image, (100, 100))  # Scale the image to your desired size
+        self.image = pygame.image.load("imgs/alien.png").convert_alpha()  
+        self.image = pygame.transform.scale(self.image, (100, 100))  
         self.original_image = self.image
-        self.rect = self.image.get_rect(center=(x, y))  # Set the rect to help with positioning
+        self.rect = self.image.get_rect(center=(x, y))  
 
     def draw(self, screen):
-        # Draw the asteroid image instead of a white circle
-        screen.blit(self.image, self.rect.topleft)  # Draw the image at the current position
+        screen.blit(self.image, self.rect.topleft)  
 
     def update(self, dt):
-        self.position += self.velocity * dt  # Update the position based on velocity
-        self.rect.center = (self.position.x, self.position.y)  # Update rect position to match the current position
+        self.position += self.velocity * dt  
+        self.rect.center = (self.position.x, self.position.y)  
 
     def split(self):
-        self.kill()  # Remove this asteroid
+        self.kill() 
 
-        if self.radius <= ASTEROID_MIN_RADIUS:
-            return  # If the asteroid is too small, don't split further
+        if self.radius <= ENEMY_MIN_RADIUS:
+            return  
 
-        # Randomize the angle of the split
+        
         random_angle = random.uniform(20, 50)
 
-        # Create two new asteroids with updated velocity and radius
+        
         a = self.velocity.rotate(random_angle)
         b = self.velocity.rotate(-random_angle)
 
-        new_radius = self.radius - ASTEROID_MIN_RADIUS
-        asteroid_a = Asteroid(self.position.x, self.position.y, new_radius)
-        asteroid_a.velocity = a * 1.2  # Adjust speed
-        asteroid_b = Asteroid(self.position.x, self.position.y, new_radius)
-        asteroid_b.velocity = b * 1.2  # Adjust speed
+        new_radius = self.radius - ENEMY_MIN_RADIUS
+        enemy_a = Enemy(self.position.x, self.position.y, new_radius)
+        enemy_a.velocity = a * 1.2  # Adjust speed
+        enemy_b = Enemy(self.position.x, self.position.y, new_radius)
+        enemy_b.velocity = b * 1.2  # Adjust speed
 
-        return asteroid_a, asteroid_b
+        return enemy_a, enemy_b
