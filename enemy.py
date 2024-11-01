@@ -2,6 +2,7 @@ import pygame
 import random
 from constants import *
 from shape import CircleShape
+from player import Player
 
 
 class Enemy(CircleShape):
