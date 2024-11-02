@@ -13,6 +13,5 @@ pip install -r requirements.txt
 I used pygame version 2.6.1.
 
 
-<video src='https://youtu.be/9VZtJwJLLbo' width=180/>
+<video src='https://www.youtube.com/watch?v=9VZtJwJLLbo' width=180/>
 
-<video src='https://youtu.be/9VZtJwJLLbo' width=180/>
