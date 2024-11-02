@@ -14,4 +14,8 @@ I used pygame version 2.6.1.
 
 
 
-![Watch the video](https://github.com/user-attachments/assets/8184a481-2193-4085-a944-96ec875c100d)](https://www.youtube.com/watch?v=9VZtJwJLLbo)
+![Watch the video](https://github.com/user-attachments/assets/636eb8d7-c61a-4b7c-9c84-b8da4b503663)
+
+
+
+
