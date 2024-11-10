@@ -7,7 +7,7 @@ from shot import Shot
 from enemy import *
 from enemyfield import *
 from score import draw_score
-   
+from deathanimation import DeathAnimation
 
 
 
@@ -32,7 +32,6 @@ def main():
     Shot.containers = (shots, updatable, drawable)
     EnemyField.containers = updatable
     enemy_field = EnemyField()
-
     Player.containers = (updatable, drawable)
 
     background_image = pygame.image.load("imgs/background.png").convert()
@@ -68,6 +67,8 @@ def main():
                 for shot in shots:
                     if enemy.collides_with(shot):
                         shot.kill()
+                        death_animation = DeathAnimation(enemy.rect.center)
+                        death_animation.add(updatable, drawable)
                         player.score += 10 
                         enemy.split()
 
