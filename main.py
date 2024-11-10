@@ -22,6 +22,7 @@ def main():
     shots = pygame.sprite.Group()
     enemys = pygame.sprite.Group()
 
+    death_animations = []
 
     #This is what I call best pratice :)
     FONT = pygame.font.Font("fonts/font.ttf", 36)
