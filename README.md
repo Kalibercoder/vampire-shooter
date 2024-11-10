@@ -13,4 +13,7 @@ pip install -r requirements.txt
 I used pygame version 2.6.1.
 
 
-<video src='https://www.youtube.com/watch?v=9VZtJwJLLbo' width=180/>
+
+
+
+![shooter](https://github.com/user-attachments/assets/187e1e39-e918-4a6b-a2e6-a9def300fe86)
