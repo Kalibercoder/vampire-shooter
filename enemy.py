@@ -2,13 +2,13 @@ import pygame
 import random
 from constants import *
 from shape import CircleShape
-from player import Player
+from player import *
 
 
 class Enemy(CircleShape):
     def __init__(self, x, y, radius):
         super().__init__(x, y, radius)
-        self.image = pygame.image.load("imgs/alien.png").convert_alpha()  
+        self.image = pygame.image.load("imgs/dog2.png").convert_alpha()  
         self.image = pygame.transform.scale(self.image, (100, 100))  
         self.original_image = self.image
         self.rect = self.image.get_rect(center=(x, y))  

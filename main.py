@@ -35,7 +35,7 @@ def main():
     enemy_field = EnemyField()
     Player.containers = (updatable, drawable)
 
-    background_image = pygame.image.load("imgs/background.png").convert()
+    background_image = pygame.image.load("imgs/background3.png").convert()
     background_image = pygame.transform.scale(background_image, (screen.get_width(), screen.get_height()))
 
     # Set up player
