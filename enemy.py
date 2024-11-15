@@ -12,13 +12,21 @@ class Enemy(CircleShape):
         self.image = pygame.transform.scale(self.image, (100, 100))  
         self.original_image = self.image
         self.rect = self.image.get_rect(center=(x, y))  
+        self.speed = ENEMY_SPEED
+
+    def chase(self, Player):
+        direction = Player - self.position
+        if direction.length() > 0:  
+            direction = direction.normalize()  
+        self.velocity = direction * self.speed
+
 
     def draw(self, screen):
         screen.blit(self.image, self.rect.topleft)  
 
     def update(self, dt):
         self.position += self.velocity * dt  
-        self.rect.center = (self.position.x, self.position.y)  
+        self.rect.center = self.position.xy
 
     def split(self):
         self.kill() 

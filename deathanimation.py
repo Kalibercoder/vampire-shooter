@@ -8,7 +8,7 @@ class DeathAnimation(pygame.sprite.Sprite):
     def __init__(self, position):
         super().__init__()
         self.image = pygame.image.load("imgs/bom.png").convert_alpha()
-        self.image = pygame.transform.scale(self.image, (300, 300))
+        self.image = pygame.transform.scale(self.image, (200, 200))
         self.rect = self.image.get_rect(center=position)
         
         self.start_time = pygame.time.get_ticks()

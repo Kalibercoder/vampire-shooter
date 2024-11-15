@@ -22,8 +22,6 @@ def main():
     shots = pygame.sprite.Group()
     enemys = pygame.sprite.Group()
 
-    death_animations = []
-
     #This is what I call best pratice :)
     FONT = pygame.font.Font("fonts/font.ttf", 36)
     font = FONT
@@ -60,6 +58,8 @@ def main():
                 obj.update(dt)
 
             for enemy in enemys:
+                enemy.chase(player.position)  # Make the enemy chase the player
+                enemy.update(dt)
                 if enemy.collides_with(player):
                     print("Game over!")
                     game_state = GAME_OVER  
@@ -78,6 +78,7 @@ def main():
             # Draw all drawable objects
             for obj in drawable:
                 obj.draw(screen)
+                
 
             # Draw the score
             draw_score(screen, player, font)
