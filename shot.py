@@ -7,7 +7,7 @@ class Shot(CircleShape):
     def __init__(self, x, y, rotation):
         super().__init__(x, y, SHOT_RADIUS)
         self.rotation = rotation
-        self.image = pygame.image.load("imgs/bullet2.png").convert_alpha()
+        self.image = pygame.image.load("imgs/firebullet.png").convert_alpha()
         self.image = pygame.transform.scale(self.image, (50, 50))
         
         self.original_image = self.image
